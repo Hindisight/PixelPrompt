@@ -123,7 +123,7 @@ async function callAPI(userText, provider, apiKey) {
     raw = (data.content || []).map((b) => b.text || "").join("");
 
   } else if (provider === "gemini") {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contents: [{ parts: [{ text: SYSTEM_PROMPT + "\n\nUser request: " + userText }] }], generationConfig: { maxOutputTokens: 1500 } }),
